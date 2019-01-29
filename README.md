@@ -3,7 +3,7 @@ This package serves as an SDK that makes it easy to interact with the Dexcom API
 exposing the most critical data in structs that are easy to consume.
 
 Supported Methods:
-- [ ] Calibrations
+- [x] Calibrations
 - [ ] Data Range
 - [ ] Devices
 - [x] Estimated Glucose Values
