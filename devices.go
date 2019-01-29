@@ -45,10 +45,15 @@ type Alert struct {
 
 // GetCalibrations will return the calibrations made in the given range
 func (c *Client) GetDevices(start, end time.Time) ([]Device, error) {
-	uri, err := url.Parse(fmt.Sprintf("%s/v2/users/self/dataRange", c.Endpoint))
+	uri, err := url.Parse(fmt.Sprintf("%s/v2/users/self/devices", c.Endpoint))
 	if err != nil {
 		return nil, err
 	}
+
+	vals := uri.Query()
+	vals.Add("startDate", start.Format("2006-01-02T15:04:05"))
+	vals.Add("endDate", end.Format("2006-01-02T15:04:05"))
+	uri.RawQuery = vals.Encode()
 
 	req, err := http.NewRequest(http.MethodGet, uri.String(), nil)
 	if err != nil {
@@ -63,14 +68,14 @@ func (c *Client) GetDevices(start, end time.Time) ([]Device, error) {
 	}
 	defer resp.Body.Close()
 
-	var dataRange getDataRangeResponse
-	err = json.NewDecoder(resp.Body).Decode(&dataRange)
+	var devices getDevicesRequest
+	err = json.NewDecoder(resp.Body).Decode(&devices)
 	if err != nil {
 		c.Logger.Log("level", "error", "msg", "could not json decode response", "err", err.Error())
 		return nil, err
 	}
 
-	c.Logger.Log("level", "info", "msg", "received data ranges")
+	c.Logger.Log("level", "info", "msg", "received devices", "n", len(devices.Devices))
 
-	return nil, nil
+	return devices.Devices, nil
 }
