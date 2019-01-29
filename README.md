@@ -53,7 +53,7 @@ go test -v github.com/t1labs/dexcom-go
 
 ## License
 
-Copyright © 2018 t1labs
+Copyright © 2019 t1labs
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
 
