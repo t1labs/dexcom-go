@@ -4,7 +4,7 @@ exposing the most critical data in structs that are easy to consume.
 
 Supported Methods:
 - [x] Calibrations
-- [ ] Data Range
+- [x] Data Range
 - [ ] Devices
 - [x] Estimated Glucose Values
 - [ ] Events

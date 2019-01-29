@@ -13,8 +13,8 @@ type getCalibrationsResponse struct {
 }
 
 type Calibration struct {
-	SystemTime    DexcomTime `json:"systemTime"`
-	DisplayTime   DexcomTime `json:"displayTime"`
+	SystemTime    Time `json:"systemTime"`
+	DisplayTime   Time `json:"displayTime"`
 	Value         int       `json:"value"`
 	Unit string `json:"unit"`
 }

@@ -15,14 +15,14 @@ type getEGVsResponse struct {
 }
 
 type EGV struct {
-	SystemTime    DexcomTime `json:"systemTime"`
-	DisplayTime   DexcomTime `json:"displayTime"`
-	Value         int       `json:"value"`
-	RealtimeValue int       `json:"realtimeValue"`
-	SmoothedValue int       `json:"smoothedValue"`
-	Status        string    `json:"status"`
-	Trend         string    `json:"trend"`
-	TrendRate     float64   `json:"trendRate"`
+	SystemTime    Time    `json:"systemTime"`
+	DisplayTime   Time    `json:"displayTime"`
+	Value         int     `json:"value"`
+	RealtimeValue int     `json:"realtimeValue"`
+	SmoothedValue int     `json:"smoothedValue"`
+	Status        string  `json:"status"`
+	Trend         string  `json:"trend"`
+	TrendRate     float64 `json:"trendRate"`
 }
 
 // GetEGVs will return all of the EGVs in the given time range or an error describing the failed network call
