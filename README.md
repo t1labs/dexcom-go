@@ -5,7 +5,7 @@ exposing the most critical data in structs that are easy to consume.
 Supported Methods:
 - [x] Calibrations
 - [x] Data Range
-- [ ] Devices
+- [x] Devices
 - [x] Estimated Glucose Values
 - [ ] Events
 - [ ] Statistics
@@ -47,7 +47,7 @@ for the past hour.
 ## Testing
 We use an environment variable `TEST_ACCESS_TOKEN` to run our integration tests. To run the test suite, this variable 
 **must be set**. To run the tests:
-```go
+```sh
 go test -v github.com/t1labs/dexcom-go
 ```
 
