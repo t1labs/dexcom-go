@@ -47,19 +47,19 @@ type Alert struct {
 func (c *Client) GetDevices(start, end time.Time) ([]Device, error) {
 	uri, err := url.Parse(fmt.Sprintf("%s/v2/users/self/dataRange", c.Endpoint))
 	if err != nil {
-		return CalibrationRange{}, EGVRange{}, EventRange{}, err
+		return nil, err
 	}
 
 	req, err := http.NewRequest(http.MethodGet, uri.String(), nil)
 	if err != nil {
 		c.Logger.Log("level", "error", "msg", "could make new request", "err", err.Error())
-		return CalibrationRange{}, EGVRange{}, EventRange{}, err
+		return nil, err
 	}
 
 	resp, err := c.c.Do(req)
 	if err != nil {
 		c.Logger.Log("level", "error", "msg", "could not do request", "err", err.Error())
-		return CalibrationRange{}, EGVRange{}, EventRange{}, err
+		return nil, err
 	}
 	defer resp.Body.Close()
 
@@ -67,10 +67,10 @@ func (c *Client) GetDevices(start, end time.Time) ([]Device, error) {
 	err = json.NewDecoder(resp.Body).Decode(&dataRange)
 	if err != nil {
 		c.Logger.Log("level", "error", "msg", "could not json decode response", "err", err.Error())
-		return CalibrationRange{}, EGVRange{}, EventRange{}, err
+		return nil, err
 	}
 
 	c.Logger.Log("level", "info", "msg", "received data ranges")
 
-	return dataRange.CalibrationRange, dataRange.EGVRange, dataRange.EventRange, nil
+	return nil, nil
 }
