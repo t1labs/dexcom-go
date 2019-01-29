@@ -42,7 +42,7 @@ Obviously, you should not panic in a real-life scenario. This example will retur
 for the past hour.
 
 ## Contributing
-- [ ] Better error handling (status code checks, logging, etc)
+- [x] Better error handling (status code checks, logging, etc)
 
 ## Testing
 We use an environment variable `TEST_ACCESS_TOKEN` to run our integration tests. To run the test suite, this variable 
