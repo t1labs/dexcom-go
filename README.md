@@ -23,6 +23,9 @@ if err != nil {
 fmt.Println(egvs)
 ```
 
+Obviously, you should not panic in a real-life scenario. This example will return all of your estimated glucose values
+for the past hour.
+
 ## Sandbox Mode
 To test with Sandbox data, simply overwrite the `Endpoint` field on the `Client`. An example:
 ```go
@@ -37,9 +40,6 @@ from this package, implement the `Logger`, and overwrite the `Logger` field on t
 c := dexcom.New("<your-access-token>")
 c.Logger = myBeautifulLogger{}
 ```
-
-Obviously, you should not panic in a real-life scenario. This example will return all of your estimated glucose values
-for the past hour.
 
 ## Contributing
 - [x] Better error handling (status code checks, logging, etc)
